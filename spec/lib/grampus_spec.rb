@@ -4,6 +4,7 @@ require 'socket'
 describe Grampus do
 
   before do
+    system "lsof -i tcp:21779"
     `lsof -t -i tcp:21779 | xargs kill`
   end
 
