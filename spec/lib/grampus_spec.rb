@@ -3,6 +3,10 @@ require 'socket'
 
 describe Grampus do
 
+  before do
+    `lsof -t -i tcp:21779 | xargs kill`
+  end
+
   it "kills a process running on a port" do
     p = fork { TCPServer.new(21779).accept }
     expect { Process.getsid(p) }.not_to raise_error
