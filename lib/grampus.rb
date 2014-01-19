@@ -21,6 +21,6 @@ class Grampus
   end
 
   def alive?(pid)
-    Process.getsid(pid) rescue false
+    Process.getpgid(pid) rescue false
   end
 end
