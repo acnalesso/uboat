@@ -1,4 +1,4 @@
-class Grampus
+class UBoat
 
   def self.kill(port)
     new.kill_at(port)
