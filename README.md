@@ -1,6 +1,4 @@
 [![Build Status](https://travis-ci.org/bdo/uboat.png)](https://travis-ci.org/bdo/uboat)
-
-
 uboat
 =======
 
