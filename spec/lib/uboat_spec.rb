@@ -3,11 +3,6 @@ require 'socket'
 
 describe UBoat do
 
-  before do
-    system "lsof -i tcp:21779 >&2"
-    system "lsof -t -i tcp:21779 | xargs -n 1 kill"
-  end
-
   it "kills a process running on a port" do
     p = fork { TCPServer.new(21779).accept }
     expect { Process.getpgid(p) }.not_to raise_error
