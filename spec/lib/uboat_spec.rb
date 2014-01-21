@@ -4,8 +4,8 @@ require 'socket'
 describe UBoat do
 
   before do
-    system "lsof -i tcp:21779"
-    `lsof -t -i tcp:21779 | xargs kill`
+    system "lsof -i tcp:21779 >&2"
+    system "lsof -t -i tcp:21779 | xargs -n 1 kill"
   end
 
   it "kills a process running on a port" do
