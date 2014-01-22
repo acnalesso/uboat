@@ -1,5 +1,8 @@
 language: ruby
 rvm:
   - 2.0.0
+before_install:
+  - lsof -i tcp:21779
+  - lsof -p -i tcp:21779
 script:
   - bundle exec rspec
