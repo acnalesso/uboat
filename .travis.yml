@@ -2,11 +2,8 @@ language: ruby
 rvm:
   - 2.0.0
 before_install:
-  - lsof -v
-  - lsof
-  - lsof -i tcp:21779 || true
-  - lsof -i tcp:110 || true
-  - lsof -i tcp:25 || true
-  - lsof -t -i tcp:25 || true
+  - nc -l localhost 3333 &
+  - lsof -i tcp:3333 || true
+  - lsof -t -i tcp:3333 || true
 script:
   - bundle exec rspec
