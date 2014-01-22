@@ -4,7 +4,9 @@ require 'socket'
 describe UBoat do
 
   it "kills a process running on a port" do
+    puts "Creating a process listening on port 21779"
     p = fork { TCPServer.new(21779).accept }
+    puts "Done creating process"
     expect { Process.getpgid(p) }.not_to raise_error
     UBoat.kill(21779)
     expect { Process.getpgid(p) }.to raise_error(Errno::ESRCH)
