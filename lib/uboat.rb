@@ -16,8 +16,8 @@ class UBoat
     pids.each do |pid|
       if alive?(pid)
         puts "Waiting for process #{pid} to quit"
-        Timeout::timeout(5) do
-          sleep 0.1 while alive?(pid)
+        begin
+          Timeout::timeout(5) { sleep 0.1 while alive?(pid) }
         rescue
           puts "Kill kill process #{pid}"
           Process.kill("KILL", pid)
