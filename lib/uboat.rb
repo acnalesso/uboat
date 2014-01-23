@@ -22,6 +22,7 @@ class UBoat
           puts "Kill kill process #{pid}"
           Process.kill("KILL", pid)
         end
+        sleep 0.1 while alive?(pid)
         puts "Long live process #{pid}"
       end
     end
