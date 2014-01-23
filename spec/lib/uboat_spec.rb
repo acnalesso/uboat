@@ -3,10 +3,9 @@ require 'socket'
 
 def create_server_process
   puts "Creating a process listening on port 21779"
-  system "nohup nc -l 21779 <<< 'hi' &>/dev/null &"
-  p = `lsof -t -i tcp:21779`
+  p = fork { TCPServer.new(21779).accept }
   puts "Done creating process #{p}"
-  p.to_i
+  p
 end
 
 describe UBoat do
