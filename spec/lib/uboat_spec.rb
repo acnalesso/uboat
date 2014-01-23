@@ -4,7 +4,7 @@ require 'socket'
 def create_server_process
   puts "Creating a process listening on port 21779"
   system <<-BASH
-    nohup nc -l 21779 <<< 'hi' &>/dev/null &
+    nohup nc -l 21779 < /dev/null &>/dev/null &
     disown %%
   BASH
   p = `lsof -t -i:21779`.to_i
