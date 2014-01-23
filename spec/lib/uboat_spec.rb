@@ -3,7 +3,11 @@ require 'socket'
 
 def create_server_process
   puts "Creating a process listening on port 21779"
-  p = fork { TCPServer.new(21779).accept }
+  system <<-BASH
+    nohup nc -l 21779 <<< 'hi' &>/dev/null &
+    disown %%
+  BASH
+  p = `lsof -t -i:21779`.to_i
   puts "Done creating process #{p}"
   p
 end
