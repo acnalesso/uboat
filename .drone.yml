@@ -1,1 +1,5 @@
 image: ruby2.0.0
+notify:
+  email:
+    recipients:
+      - bdoncieu+uboat+drone@gmail.com
