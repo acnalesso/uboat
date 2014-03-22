@@ -1,4 +1,6 @@
 image: ruby2.0.0
+script:
+  - bundle exec rspec
 notify:
   email:
     recipients:
