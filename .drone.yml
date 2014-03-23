@@ -4,4 +4,4 @@ script:
 notify:
   email:
     recipients:
-      - bdoncieu+drone@gmail.com
+      - bdoncieu+uboat+drone@gmail.com
